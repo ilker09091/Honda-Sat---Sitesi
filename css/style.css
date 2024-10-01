@@ -226,22 +226,26 @@ iframe {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100vw;
-    height: 900vh;
-    transform: translate(-50%, -50%);
-    pointer-events: none; /* Kullanıcı etkileşimlerini engelle */
+    width: 100%; 
+    height: 100%; 
+    min-width: 100%; 
+    min-height: 100%; 
+    transform: translate(-50%, -50%) scale(1.5); 
+    pointer-events: none;
+    border: none; 
 }
 
 @media screen and (max-width: 768px) {
-    .video-background{
-        width: 900px;
-        height: 100vh;
-        rotate: 90deg;
-    }
-    iframe {
-        width: 100%;
-        height: 100%;
-       
+    .video-background {
+        width: 100%; 
+        height: 100vh; 
     }
     
+    iframe {
+        width: 100%; 
+        height: 100%; 
+        min-width: 100%; 
+        min-height: 100%; 
+        transform: translate(-50%, -50%) scale(2.99);
+    }
 }
