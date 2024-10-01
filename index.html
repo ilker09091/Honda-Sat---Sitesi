@@ -8,6 +8,11 @@
     <title>Honda Services</title>
 </head>
 <body>
+    <div class="video-background">
+        <iframe id="video" src="https://www.youtube.com/embed/ni7wf8ImA6w?autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=ni7wf8ImA6w" 
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
     <header>
         <div class="check-box">
             <input type="checkbox" id="check">
@@ -67,5 +72,22 @@
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // Video bittiğinde baştan başlatmak için
+        const videoIframe = document.getElementById('video');
+        videoIframe.onload = function() {
+            const player = new YT.Player(videoIframe, {
+                events: {
+                    'onStateChange': function(event) {
+                        if (event.data == YT.PlayerState.ENDED) {
+                            event.target.playVideo();
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
