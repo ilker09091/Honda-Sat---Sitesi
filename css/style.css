@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(46, 46, 46);
+}
+
+/*! NAVBAR */
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 100px;
+    background-color: rgb(46, 46, 46);
+    color: #fff;
+}
+
+header .check-box input[type="checkbox"] {
+    display: none; /* Checkbox gizli */
+}
+
+header .check-box label {
+    cursor: pointer;
+    position: relative;
+    font-size: 34px;
+    color: #fff;
+    z-index: 99;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 50%;
+    background-color: rgb(90, 90, 90, 0.6);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav.active {
+    z-index: 2;
+    transform: translateX(0%); 
+}
+
+.hire {
+    margin-left: auto;
+}
+
+.hire-btn {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hire-btn:hover {
+    background-color: #cc0000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+/* Telefon modu için medya sorgusu */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 0 20px;
+        justify-content: space-between;
+    }
+
+    nav {
+        width: 100%; /* Tam ekran genişliği */
+        background-color: rgba(46, 46, 46, 0.95); /* Arka plan daha koyu */
+        transform: translateX(-100%); /* Menü başlangıçta gizli */
+    }
+
+    nav ul li a {
+        font-size: 20px; /* Daha büyük font boyutu */
+        padding: 10px 0; /* Daha geniş dokunma alanı */
+    }
+
+    .logo {
+        font-size: 20px; /* Logo boyutunu küçült */
+        z-index: 99;
+    }
+
+    .hire-btn {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+    
+    /* Menü açıldığında görünür yap */
+    nav.active {
+        transform: translateX(0%);
+    }
+
+    .check-box label {
+        font-size: 30px; /* Menü ikonunu büyüt */
+    }
+}
+/* !NAVBAR */
+
+/*! MAIN CONTENT */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.car-info {
+    display: flex;
+    align-items: center;
+    min-width: 100%; /* Her bir car-info genişliği %100 olacak */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.car-info.active {
+    opacity: 1;
+}
+
+.car-info img {
+    width: 50%; /* Resim genişliği %50 olacak */
+    border-radius: 8px;
+    margin-right: 20px; /* Resim ile metin arasında boşluk */
+}
+
+.text {
+    color: #fff;
+}
+
+/* Ok butonları */
+.arrow {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+}
+
+.arrow:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 768px) {
+
+    .content-wrapper .slider .car-info img{
+        width: 100%;
+        margin-right: 0;
+    }
+    .content-wrapper .slider .car-info{
+        flex-direction: column;
+    }
+    
+}
+
+/*! MAIN CONTENT */
